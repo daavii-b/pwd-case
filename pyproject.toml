@@ -5,7 +5,7 @@ description = "Tech case for PowerData"
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Davi Brito", email = "brit.davi122@gmail.com" }]
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = ["python-dotenv>=1.2.1"]
 
 [project.optional-dependencies]
@@ -20,7 +20,7 @@ dev = ["ruff", "pyright", "pytest", "pytest-xdist"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py314"
+target-version = "py312"
 fix = true
 
 show-fixes = true
@@ -83,7 +83,7 @@ known-first-party = ["package"]
 # ============================
 [tool.pyright]
 typeCheckingMode = "strict"
-pythonVersion = "3.14"
+pythonVersion = "3.12"
 include = ["src", 'tests']
 exclude = [
     "**/venv",
