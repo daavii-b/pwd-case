@@ -12,6 +12,7 @@ class PeopleExternalSchema(BaseModel):
     skin_color: str = Field(alias="skin_color")
     created_at: str = Field(alias="created")
     edited_at: str = Field(alias="edited")
+
     model_config = {"extra": "ignore"}
 
 
