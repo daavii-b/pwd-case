@@ -1,3 +1,3 @@
-from .http import HTTPClient
+from .http import get_http_client, lifespan
 
-__all__ = ["HTTPClient"]
+__all__ = ["get_http_client", "lifespan"]

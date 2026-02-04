@@ -1,17 +1,23 @@
+from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
 from typing import Any, Literal
 
-from httpx import AsyncClient, Limits
+from fastapi import FastAPI
+from httpx import AsyncClient
 
-from shared.patterns.singleton import SingletonMeta
+http_client_wrapper: dict[Literal["client"], AsyncClient] = {}
 
 
-class HTTPClient(metaclass=SingletonMeta):
-    def get_client(self, base_url: str | None = None) -> AsyncClient:
-        client_config: dict[Literal["limits", "base_url"], Any] = {
-            "limits": Limits(max_keepalive_connections=20, max_connections=100)
-        }
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, Any]:
+    client = AsyncClient(base_url="https://swapi.dev/api/")
 
-        if base_url is not None:
-            client_config["base_url"] = base_url
+    http_client_wrapper["client"] = client
 
-        return AsyncClient(**client_config)
+    yield
+
+    await client.aclose()
+
+
+def get_http_client() -> AsyncClient:
+    return http_client_wrapper["client"]
