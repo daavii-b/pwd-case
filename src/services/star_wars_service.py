@@ -56,7 +56,9 @@ class StarWarsService(metaclass=SingletonMeta):
         self, query: ResourceQuery
     ) -> ResourceOutput[PeopleExternalSchema]:
         try:
-            response = await self._client.get("/people", params=query.model_dump())
+            response = await self._client.get(
+                "/people", params=query.model_dump(exclude_none=True)
+            )
 
             response.raise_for_status()
 
@@ -77,7 +79,9 @@ class StarWarsService(metaclass=SingletonMeta):
         self, query: ResourceQuery
     ) -> ResourceOutput[FilmsExternalSchema]:
         try:
-            response = await self._client.get("/films", params=query.model_dump())
+            response = await self._client.get(
+                "/films", params=query.model_dump(exclude_none=True)
+            )
 
             response.raise_for_status()
 
@@ -98,7 +102,9 @@ class StarWarsService(metaclass=SingletonMeta):
         self, query: ResourceQuery
     ) -> ResourceOutput[StarshipsExternalSchema]:
         try:
-            response = await self._client.get("/starships", params=query.model_dump())
+            response = await self._client.get(
+                "/starships", params=query.model_dump(exclude_none=True)
+            )
 
             response.raise_for_status()
 
@@ -120,7 +126,9 @@ class StarWarsService(metaclass=SingletonMeta):
         self, query: ResourceQuery
     ) -> ResourceOutput[PlanetsExternalSchema]:
         try:
-            response = await self._client.get("/planets", params=query.model_dump())
+            response = await self._client.get(
+                "/planets", params=query.model_dump(exclude_none=True)
+            )
 
             response.raise_for_status()
 
