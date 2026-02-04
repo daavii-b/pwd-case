@@ -16,7 +16,7 @@ class PlanetsMapper:
             terrain=external_schema.terrain,
             created_at=external_schema.created_at,
             edited_at=external_schema.edited_at,
-            diameter=external_schema.edited_at,
+            diameter=external_schema.diameter,
             gravity=external_schema.gravity,
             population=external_schema.population,
             orbital_period=external_schema.orbital_period,
