@@ -6,22 +6,18 @@ Construir e disponibilizar uma plataforma que visa oferecer uma experiência env
 
 ## Critérios
 - [ ] Ambiente **GCP (Cloud Function e API Gateway/Apigee)**.
-- [ ] Utilizar Python para construção da solução.
-- [ ] Consumir os dados a partir da API de [StarWars](https://swapi.dev/).
-- [ ] Filtragem de dados com base em dados específicos.
+- [x] Utilizar Python para construção da solução.
+- [x] Consumir os dados a partir da API de [StarWars](https://swapi.dev/).
+- [x] Filtragem de dados com base em dados específicos.
 
 
 ## Requisitos Funcionais
-- [ ] RF001 - O sistema deve permitir que o usuário consulte diferente informações através de um único endpoint.
-- [ ] RF002 - O sistema deve permitir que o usuário interaja com os dados utilizando filtros específicos. 
-- [ ] RF003 - O sistema deve permitir que o usuário faça buscas com digitação livre.
-- [ ] RF004 - O sistema deve permitir o usuário consultar informações sobre filmes, personagens, planetas e naves.
-
-## Requisitos Não Funcionais
-- [ ] RNF001 - O sistema deve utilizar cache para melhora de performance.
-- [ ] RNF002 - O sistema deve utilizar paginação para listagem de dados.
-- [ ] RNF003 - O sistema deve ter uma cobertura de tests acima de 80%.
-
+- [x] RF001 - O sistema deve permitir que o usuário consulte diferentes informações através de um único endpoint.
+- [x] RF002 - O sistema deve permitir que o usuário interaja com os dados utilizando filtros específicos.
+- [x] RF003 - O sistema deve permitir que o usuário faça buscas com digitação livre.
+- [x] RF004 - O sistema deve permitir o usuário consultar informações sobre filmes, personagens, planetas e naves.
+- [x] RF005 - O sistema deve permitir o usuário ordenar os resultados utilizando valores específicos.
+- [x] RF006 - O sistema deve permitir o usuário uma navegação controlada (Paginação)
 
 ## Licença
 
