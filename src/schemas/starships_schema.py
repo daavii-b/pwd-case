@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class StarshipsExternalSchema(BaseModel):
@@ -16,7 +16,7 @@ class StarshipsExternalSchema(BaseModel):
     created_at: str = Field(alias="created")
     edited_at: str = Field(alias="edited")
 
-    model_config = {"extra": "ignore"}
+    model_config = ConfigDict(extra="ignore")
 
 
 class StarshipsSchema(BaseModel):
