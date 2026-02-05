@@ -65,8 +65,6 @@ async def dashboard(
         reverse=query.sort_dir == "desc",
     )
 
-    print(len(encoded_output))
-
     return JSONResponse(
         content={"data": encoded_output, "meta": jsonable_encoder(output.meta)},
         status_code=status.HTTP_200_OK,
