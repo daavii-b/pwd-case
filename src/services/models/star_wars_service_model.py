@@ -1,3 +1,5 @@
+from collections.abc import Sequence
+
 from pydantic import BaseModel, ConfigDict, Field
 
 from schemas import (
@@ -38,4 +40,4 @@ class ResourceQuery(BaseModel):
 
 class ResourceOutput[T](BaseModel):
     count: int = Field(alias="count")
-    output: list[T]
+    output: Sequence[T]
