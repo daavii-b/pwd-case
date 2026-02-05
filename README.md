@@ -42,7 +42,7 @@ Construir e disponibilizar uma plataforma que visa oferecer uma experiência env
 
   - **Clone o repositório:**
     ```sh
-    git clone https://github.com/daavii-b/portfolio.git
+    git clone https://github.com/daavii-b/pwd-case.git
     ```
   - **Instale as dependências do projeto:**
     ```sh
