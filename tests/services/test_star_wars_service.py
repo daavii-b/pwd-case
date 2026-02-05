@@ -24,8 +24,6 @@ class TestStarWarsServiceIntegration:
     def setup(self, star_wars_service: StarWarsService) -> None:
         self.sut = star_wars_service
 
-    # ===== Success Tests =====
-
     @pytest.mark.asyncio
     async def test_fetch_people_successfully(
         self,
@@ -142,8 +140,6 @@ class TestStarWarsServiceIntegration:
         assert planet.name == "Tatooine"
         assert planet.climate == "arid"
 
-    # ===== Pagination Tests =====
-
     @pytest.mark.asyncio
     async def test_fetch_with_pagination(
         self,
@@ -186,8 +182,6 @@ class TestStarWarsServiceIntegration:
         assert result.meta.total == 1
         assert result.meta.page == 2
 
-    # ===== Search Tests =====
-
     @pytest.mark.asyncio
     async def test_fetch_with_search_parameter(
         self,
@@ -229,8 +223,6 @@ class TestStarWarsServiceIntegration:
 
         assert isinstance(result, FetchOutput)
         assert result.meta.page == 1
-
-    # ===== Error Tests =====
 
     @pytest.mark.asyncio
     async def test_fetch_with_http_status_error(
@@ -279,7 +271,6 @@ class TestStarWarsServiceIntegration:
         """Test handling of invalid resource enum."""
         from pydantic import ValidationError
 
-        # Pydantic validates the enum before reaching service logic
         with pytest.raises(ValidationError) as exc_info:
             FetchInput(
                 resource="invalid_resource",  # type: ignore
@@ -288,8 +279,6 @@ class TestStarWarsServiceIntegration:
             )
 
         assert "resource" in str(exc_info.value)
-
-    # ===== Data Mapping Tests =====
 
     @pytest.mark.asyncio
     async def test_response_data_mapping(
@@ -309,7 +298,6 @@ class TestStarWarsServiceIntegration:
             FetchInput(resource=ResourceEnum.PEOPLE, search=None, page=1)
         )
 
-        # Verify mapping transformation
         person = result.data[0]
         assert hasattr(person, "name")
         assert hasattr(person, "height")
@@ -335,16 +323,12 @@ class TestStarWarsServiceIntegration:
             FetchInput(resource=ResourceEnum.PEOPLE, search=None, page=1)
         )
 
-        # Verify response structure
         assert hasattr(result, "data")
         assert hasattr(result, "meta")
         assert isinstance(result.data, list)
         assert isinstance(result.meta, PaginationMeta)
         assert hasattr(result.meta, "total")
         assert hasattr(result.meta, "page")
-
-
-# ===== Fixtures =====
 
 
 @pytest.fixture

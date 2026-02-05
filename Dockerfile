@@ -13,5 +13,4 @@ COPY . .
 
 RUN uv pip install --system --no-cache .
 
-# O comando final continua o mesmo
 CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8080}"]
