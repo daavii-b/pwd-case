@@ -91,8 +91,13 @@ Construir e disponibilizar uma plataforma que visa oferecer uma experiência env
 *Consulte a disponibilidade da API.*
   - **GET** `/heath`
 
-
  **Acesse a [documentação](https://pwd-api-case-67qoea42.ue.gateway.dev/docs) da API para mais detalhes.**
+
+## Tecnologias:
+
+- **Linguagem: Python**
+- **Framework: FastAPI**
+- **Validação: Pydantic**
 
 ## Licença
 
